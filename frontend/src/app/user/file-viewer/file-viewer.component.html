@@ -1,0 +1,17 @@
+<div class="col-12 mt-5" *ngIf="dataResults else noDataResults">
+<div class="card">
+  <div class="card-body">
+  <h5 class="card-title">JSON Viewer</h5>
+  <div class="card-text">
+  <ngx-json-viewer [json]="dataResults" [expanded]="false"></ngx-json-viewer>
+  </div>
+</div>
+</div>
+<button class="mt-5 btn btn-primary" (click)="downloadObjectAsJson()">Download JSON</button>
+<button class="mt-5 ml-2 btn btn-warning" [routerLink]="['/file-process']">New JSON</button>
+</div>
+
+
+<ng-template #noDataResults>
+  Click here to generate json <a [routerLink]="['/file-process']">click</a> 
+</ng-template>

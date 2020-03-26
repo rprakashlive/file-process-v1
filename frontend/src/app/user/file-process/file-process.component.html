@@ -1,0 +1,42 @@
+<ngx-spinner
+bdOpacity = 0.6
+bdColor = "rgba(121,118,118,0.5)"
+size = "large"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true"
+>
+<!-- <p style="color: white" > Loading...</p> -->
+</ngx-spinner>
+
+<div class="center col-12">
+  <ngx-file-drop dropZoneLabel="Drop files here" (onFileDrop)="dropped($event)" 
+  (onFileOver)="fileOver($event)" (onFileLeave)="fileLeave($event)">
+      <ng-template ngx-file-drop-content-tmp let-openFileSelector="openFileSelector">
+        Optional custom content that replaces the the entire default content.
+        <button type="button" (click)="openFileSelector()">Browse Files</button>
+      </ng-template>
+  </ngx-file-drop>
+  <div class="upload-table">
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>File Name</th>
+                  <th>Path</th>
+              </tr>
+          </thead>
+          <tbody class="upload-name-style">
+              <tr *ngFor="let item of returnedArray; let i=index">
+                  <td><strong>{{ item.fileEntry.name }}</strong></td>
+                  <td><strong>{{ item.relativePath }}</strong></td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+  <div *ngIf="files.length > 0">
+  <pagination [align]="true" [boundaryLinks]="true" [maxSize]="maxSize" [itemsPerPage]="10" [totalItems]="files.length" (pageChanged)="pageChanged($event)"></pagination>
+</div>
+</div>
+<div class="col-12">
+<button class=" btn-md btn btn-success" (click)="processJson()">Generate Json File</button>
+</div>
