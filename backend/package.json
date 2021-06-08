@@ -16,7 +16,7 @@
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "lodash": "^4.17.15",
-    "merge-deep": "^3.0.2",
+    "merge-deep": "^3.0.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.2",
     "path": "^0.12.7",
